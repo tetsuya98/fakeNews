@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Thèmes - Fake News
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>Thèmes</h1>
+        <p>
+            <span class="badge badge-danger">{{ errMSG }}</span>
+        </p>
+
+        <a class="btn btn-success btn-lg btn-block" href="{{ path('fake_news_theme_ajouter') }}" role="button"><i class="fas fa-plus"></i> Add</a>
+        <ul class="list-group">
+            {% for theme in themes %}
+                <li class="list-group-item">
+                    <h5>{{ theme.intitule }}</h5>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-info btn-lg" href="{{ path('fake_news_theme', { 'id': theme.id }) }}" role="button"><i class="far fa-eye"></i> Show</a>
+                        <a class="btn btn-info btn-lg" href="{{ path('fake_news_theme_edit', { 'id': theme.id }) }}" role="button"><i class="fas fa-edit"></i> Edit</a>
+                        <a class="btn btn-danger btn-lg" href="{{ path('fake_news_theme_remove', { 'id': theme.id }) }}" role="button"><i class="fas fa-trash"></i> Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn btn-secondary btn-lg btn-block" href="{{ path('fake_news_accueil') }}" role="button">Return</a>
+    </div>
+{% endblock %}

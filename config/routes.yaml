@@ -1,10 +1,102 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-fake_news_index:
+fake_news_accueil:
   path: /
   controller: App\Controller\NewsController::accueil
 
-fake_news_accueil:
-  path: /accueil
-  controller: App\Controller\NewsController::accueil
+fake_news_themes:
+  path: /themes
+  controller: App\Controller\NewsController::themes
+
+fake_news_theme:
+  path: /theme/{id}
+  controller: App\Controller\NewsController::theme
+
+fake_news_theme_remove:
+  path: /theme/{id}/remove
+  controller: App\Controller\NewsController::themeRemove
+
+fake_news_theme_ajouter:
+  path: /themes/add
+  controller: App\Controller\NewsController::themeAjouter
+
+fake_news_theme_edit:
+  path: /theme/{id}/edit
+  controller: App\Controller\NewsController::themeEdit
+
+fake_news_categories:
+  path: /categories
+  controller: App\Controller\NewsController::categories
+
+fake_news_categorie:
+  path: /categorie/{id}
+  controller: App\Controller\NewsController::categorie
+
+fake_news_categorie_remove:
+  path: /categorie/{id}/remove
+  controller: App\Controller\NewsController::categorieRemove
+
+fake_news_categorie_ajouter:
+  path: /categories/add
+  controller: App\Controller\NewsController::categorieAjouter
+
+fake_news_categorie_edit:
+  path: /categorie/{id}/edit
+  controller: App\Controller\NewsController::categorieEdit
+
+fake_news_infoxs:
+  path: /infox
+  controller: App\Controller\NewsController::infoxs
+
+fake_news_infox:
+  path: /infox/{id}
+  controller: App\Controller\NewsController::infox
+
+fake_news_infox_remove:
+  path: /infox/{id}/remove
+  controller: App\Controller\NewsController::infoxRemove
+
+fake_news_infox_ajouter:
+  path: /infoxs/add
+  controller: App\Controller\NewsController::infoxAjouter
+
+fake_news_infox_edit:
+  path: /infox/{id}/edit
+  controller: App\Controller\NewsController::infoxEdit
+
+fake_news_personnes:
+  path: /personnes
+  controller: App\Controller\NewsController::personnes
+
+fake_news_personne:
+  path: /personne/{id}
+  controller: App\Controller\NewsController::personne
+
+fake_news_personne_remove:
+  path: /personne/{id}/remove
+  controller: App\Controller\NewsController::personneRemove
+
+fake_news_personne_ajouter:
+  path: /personnes/add
+  controller: App\Controller\NewsController::personneAjouter
+
+fake_news_personne_edit:
+  path: /personne/{id}/edit
+  controller: App\Controller\NewsController::personneEdit
+
+goto_share_infox:
+  path: /infox/{id}/share
+  controller: App\Controller\NewsController::gotoShareInfox
+
+sharing_infox:
+  path: /infox/{id}/shared/{pers}
+  controller: App\Controller\NewsController::infoxShare
+
+unsharing_infox:
+  path: /infox/{id}/unshared/{pers}
+  controller: App\Controller\NewsController::infoxUnshare
+
+unsharing_personne:
+  path: /personne/{id}/unshared/{pers}
+  controller: App\Controller\NewsController::personneUnshare

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ theme.intitule }} - Fake News
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>{{ theme.intitule }}</h1>
+
+        <ul class="list-group">
+            <li class="list-group-item">{{ theme.id }}</li>
+            <li class="list-group-item">Homme : {{ pariteH }} % | Femme : {{ pariteF }} %</li>
+        </ul>
+    <div class="btn-group btn-block" role="group">
+        <a class="btn btn-danger btn-lg " href="{{ path('fake_news_theme_remove', { 'id': theme.id }) }}" role="button"><i class="fas fa-trash"></i> Delete</a>
+        <a class="btn btn-info btn-lg " href="{{ path('fake_news_theme_edit', { 'id': theme.id }) }}" role="button"><i class="fas fa-edit"></i> Edit</a>
+    </div>
+
+        <h2>Infox</h2>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Intitule</th>
+                <th scope="col">Viralite</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for infox in infoxs %}
+            <tr>
+                <td>{{ infox.intitule }}</td>
+                <td>{{ infox.viralite }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="{{ path('fake_news_infox', { 'id': infox.id }) }}" role="button"><i class="far fa-eye"></i> Show</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-secondary btn-lg btn-block " href="{{ path('fake_news_themes') }}" role="button">Return</a>
+    </div>
+{% endblock %}

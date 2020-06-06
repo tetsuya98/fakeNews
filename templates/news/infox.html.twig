@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ infox.intitule }} - Fake News
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>{{ infox.intitule }}</h1>
+
+        <ul class="list-group">
+            <li class="list-group-item">{{ infox.id }}</li>
+            <li class="list-group-item">Viralite : {{ infox.viralite }}</li>
+            <li class="list-group-item">Theme : {{ infox.theme }}</li>
+            <li class="list-group-item">Homme : {{ pariteH }} % | Femme : {{ pariteF }} %</li>
+        </ul>
+        <div class="btn-group btn-block" role="group">
+            <a class="btn btn-danger btn-lg " href="{{ path('fake_news_infox_remove', { 'id': infox.id }) }}" role="button"><i class="fas fa-trash"></i> Delete</a>
+            <a class="btn btn-info btn-lg " href="{{ path('fake_news_infox_edit', { 'id': infox.id }) }}" role="button"><i class="fas fa-edit"></i> Edit</a>
+            <a class="btn btn-success btn-lg " href="{{ path('goto_share_infox', { 'id': infox.id }) }}" role="button"><i class="fas fa-user-friends"></i> Share</a>
+        </div>
+
+        <h1>Personnes</h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Age</th>
+                <th scope="col">Sexe</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for personne in personnes %}
+                <tr>
+                    <td>{{ personne.nom }}</td>
+                    <td>{{ personne.age }}</td>
+                    <td>{{ personne.sexe }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="{{ path('fake_news_personne', { 'id': personne.id }) }}" role="button"><i class="far fa-eye"></i> Show</a>
+                        <a class="btn btn-danger btn-sm" href="{{ path('unsharing_infox', { 'id': infox.id, 'pers': personne.id }) }}" role="button"><i class="fas fa-thumbs-down"></i> Dissocier</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-secondary btn-lg btn-block" href="{{ path('fake_news_infoxs') }}" role="button">Return</a>
+    </div>
+{% endblock %}

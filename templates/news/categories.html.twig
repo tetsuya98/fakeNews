@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Catégories - Fake News
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>Catégories</h1>
+        <p>
+            <span class="badge badge-danger">{{ errMSG }}</span>
+        </p>
+        <a class="btn btn-success btn-lg btn-block" href="{{ path('fake_news_categorie_ajouter') }}" role="button"><i class="fas fa-plus"></i> Add</a>
+        <ul class="list-group">
+            {% for categorie in categories %}
+                <li class="list-group-item">
+                    <h5>{{ categorie.intitule }}</h5>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-info btn-lg" href="{{ path('fake_news_categorie', { 'id': categorie.id }) }}" role="button"><i class="far fa-eye"></i> Show</a>
+                        <a class="btn btn-info btn-lg" href="{{ path('fake_news_categorie_edit', { 'id': categorie.id }) }}" role="button"><i class="fas fa-edit"></i> Edit</a>
+                        <a class="btn btn-danger btn-lg" href="{{ path('fake_news_categorie_remove', { 'id': categorie.id }) }}" role="button"><i class="fas fa-trash"></i> Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn btn-secondary btn-lg btn-block" href="{{ path('fake_news_accueil') }}" role="button">Return</a>
+    </div>
+{% endblock %}

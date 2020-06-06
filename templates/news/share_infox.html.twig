@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Accueil - Fake News
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>Share : {{ infox.intitule }}</h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Age</th>
+                <th scope="col">Sexe</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for personne in personnes %}
+                <tr>
+                    <td>{{ personne.nom }}</td>
+                    <td>{{ personne.age }}</td>
+                    <td>{{ personne.sexe }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="{{ path('sharing_infox', { 'id': infox.id, 'pers': personne.id }) }}" role="button"><i class="fas fa-thumbs-up"></i> Associer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Personne - Fake News
+{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1>Personnes</h1>
+        <a class="btn btn-success btn-lg btn-block" href="{{ path('fake_news_personne_ajouter') }}" role="button"><i class="fas fa-plus"></i> Add</a>
+        <ul class="list-group">
+            {% for personne in personnes %}
+                <li class="list-group-item">
+                    <h5>{{ personne.nom }}</h5>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-info btn-lg" href="{{ path('fake_news_personne', { 'id': personne.id }) }}" role="button"><i class="far fa-eye"></i> Show</a>
+                        <a class="btn btn-info btn-lg" href="{{ path('fake_news_personne_edit', { 'id': personne.id }) }}" role="button"><i class="fas fa-edit"></i> Edit</a>
+                        <a class="btn btn-danger btn-lg" href="{{ path('fake_news_personne_remove', { 'id': personne.id }) }}" role="button"><i class="fas fa-trash"></i> Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn btn-secondary btn-lg btn-block" href="{{ path('fake_news_accueil') }}" role="button">Return</a>
+    </div>
+{% endblock %}

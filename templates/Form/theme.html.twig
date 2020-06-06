@@ -1,0 +1,7 @@
+{{ form_start(monFormulaire) }}
+ {{ form_errors(monFormulaire) }}
+<ul class="list-group">
+    <li class="list-group-item">{{ form_row(monFormulaire.intitule) }}</li>
+    <li class="list-group-item">{{ form_row(monFormulaire.submit) }}</li>
+</ul>
+{{ form_end(monFormulaire) }}
